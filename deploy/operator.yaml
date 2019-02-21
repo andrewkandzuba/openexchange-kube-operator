@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: openexchange-kube-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: openexchange-kube-operator
+  template:
+    metadata:
+      labels:
+        name: openexchange-kube-operator
+    spec:
+      serviceAccountName: openexchange-kube-operator
+      containers:
+        - name: openexchange-kube-operator
+          # Replace this with the built image name
+          image: REPLACE_IMAGE
+          command:
+          - openexchange-kube-operator
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "openexchange-kube-operator"
