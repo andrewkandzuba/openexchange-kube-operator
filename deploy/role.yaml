@@ -4,11 +4,40 @@ metadata:
   creationTimestamp: null
   name: openexchange-kube-operator
 rules:
-- apiGroups:
-  - ""
-  resources:
-  - namespaces
-  verbs:
-  - get
-  - list
-  - watch
+  - apiGroups:
+      - ""
+    resources:
+      - namespaces
+      - events
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+      - configmaps
+      - secrets
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
+      - app.example.com
+    resources:
+      - appservices
+      - appservices/finalizers
+    verbs:
+      - create
+      - delete
+      - get
+      - list
+      - patch
+      - update
+      - watch
