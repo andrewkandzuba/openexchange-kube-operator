@@ -16,7 +16,7 @@ spec:
       containers:
         - name: openexchange-kube-operator
           # Replace this with the built image name
-          image: andrewkandzuba/openexchange-kube-operator
+          image: REPLACE_IMAGE
           command:
           - openexchange-kube-operator
           imagePullPolicy: Always
