@@ -5,6 +5,22 @@ metadata:
   name: openexchange-kube-operator
 rules:
   - apiGroups:
+      - extensions
+    attributeRestrictions: null
+    resources:
+      - replicasets
+      - replicasets/scale
+      - replicationcontrollers/scale
+    verbs:
+      - create
+      - delete
+      - deletecollection
+      - get
+      - list
+      - patch
+      - update
+      - watch
+  - apiGroups:
       - ""
     resources:
       - namespaces

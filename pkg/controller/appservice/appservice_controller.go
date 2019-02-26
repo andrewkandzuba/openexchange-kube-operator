@@ -143,9 +143,8 @@ func newPodForCR(cr *appv1alpha1.AppService) *corev1.Pod {
 		Spec: corev1.PodSpec{
 			Containers: []corev1.Container{
 				{
-					Name:    "busybox",
-					Image:   "busybox",
-					Command: []string{"sleep", "3600"},
+					Name:    "kubia",
+					Image:   "docker-registry.default.svc:5000/amq-streams-enabler/kubia",
 				},
 			},
 		},
